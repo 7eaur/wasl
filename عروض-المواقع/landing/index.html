@@ -30,25 +30,19 @@
  .site-tabs button,.segmented button{min-height:41px}
 }
 
-/* عرض كل باقة مع تفاصيلها في بطاقة واحدة */
+/* Full package cards */
 .package-grid{align-items:start}
 .plan{gap:0}
-.package-detail{margin-top:16px;border-top:1px solid #dfeceb;padding-top:13px}
-.package-detail summary{display:flex;justify-content:space-between;gap:9px;align-items:center;list-style:none;cursor:pointer;background:#0a8984;color:#fff;border-radius:11px;padding:12px;font-size:12px;font-weight:850;min-height:46px}
-.package-detail summary::-webkit-details-marker{display:none}
-.package-detail summary .ico{height:17px;width:17px;transition:transform .2s}
-.package-detail[open] summary .ico{transform:rotate(180deg)}
-.package-detail-body{padding:13px 2px 2px}
-.package-detail-body h4{font-size:12px;color:#113c52;margin:12px 0 8px}
-.package-detail-body ul{margin:0;display:flex;flex-direction:column;gap:9px}
-.package-detail-body li{font-size:11.5px;line-height:1.8}
-.package-detail-list{display:grid;gap:8px}
-.package-detail-item{background:#f3f9f8;border:1px solid #e0eeea;padding:11px 12px;border-radius:11px}
-.package-detail-item strong{font-size:12px;color:#174457}
-.package-detail-item p{font-size:11px;color:#5d7480;line-height:1.85;margin:4px 0 0}
-.offer-note{font-size:11px;color:#5b7480;line-height:1.9;margin:18px auto 0;max-width:800px;text-align:center}
-@media(max-width:800px){.package-grid{grid-template-columns:1fr}.plan{max-width:650px;width:100%;margin:auto}}
-
+.plan-section{margin-top:18px;padding-top:14px;border-top:1px solid #dce9ec}
+.plan-section h4{margin:0 0 10px;font-size:14px;color:var(--navy)}
+.plan-section ul{display:grid;gap:10px;margin:0}
+.plan-section li{font-size:13px;line-height:1.7}
+.plan-section li strong{display:block;color:var(--ink);font-weight:850}
+.plan-section li span{display:block;color:var(--soft)}
+@media(max-width:880px){
+  .package-grid{grid-template-columns:1fr}
+  .plan{max-width:650px;width:100%;margin:auto}
+}
 /* Offer navigation, interactive sample, and package comparison */
 .official-logo{display:block;width:156px}
 .official-logo svg{width:100%;height:auto}
@@ -82,25 +76,35 @@
 .marketing-content{background:#eaf5f6}
 .marketing-content #content{padding-bottom:32px}
 .marketing-content #social{padding-top:32px;border-top:1px solid var(--line)}
-.plan-highlights{min-height:6em}
-.plan-contact{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;min-height:46px;padding:8px;border:1px solid #b8dfd9;border-radius:11px;color:#08655f;background:#f1faf8;font-size:13px;font-weight:850}
+.plan-contact{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:18px;min-height:46px;padding:8px;border:1px solid #b8dfd9;border-radius:11px;color:#08655f;background:#f1faf8;font-size:13px;font-weight:850}
 .plan-contact:hover{background:#def3f0}
 .plan-contact .ico{width:17px;height:17px}
-.shared-offer,.offer-comparison{margin-top:18px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-radius:14px}
-.shared-offer h3{margin:0 0 10px;font-size:15px}
-.shared-offer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;padding:0;color:var(--soft);font-size:13px}
-.shared-offer li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-inline-end:6px;background:#0b8b83;vertical-align:middle}
-.offer-comparison summary{display:flex;align-items:center;justify-content:space-between;min-height:28px;font-weight:850;cursor:pointer;list-style:none}
-.offer-comparison summary::-webkit-details-marker{display:none}
-.offer-comparison[open] summary .ico{transform:rotate(180deg)}
-.comparison-table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:12px;font-size:13px}
-.comparison-table :is(th,td){padding:8px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+.comparison-jump{display:flex;justify-content:center;margin:-10px 0 20px}
+.offer-comparison{margin-top:28px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.offer-comparison h3{margin:0 0 4px;font-size:23px;color:var(--navy)}
+.offer-comparison p{margin:0;color:var(--soft);font-size:13px}
+.offer-comparison .comparison-note{margin-top:12px}
+.comparison-table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:14px;font-size:13px}
+.comparison-table :is(th,td){padding:10px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
 .comparison-table thead th{background:#eff7f6;color:var(--navy)}
+.comparison-table thead th:first-child{width:21%}
 .comparison-table td{color:var(--soft)}
+.comparison-table .comparison-group th{background:#f2f8fa;color:var(--navy)}
+.comparison-table .comparison-absent{color:#526979}
+@media(max-width:600px){
+  .offer-comparison{padding:14px 10px}
+  .comparison-table,.comparison-table :is(thead,tbody){display:block}
+  .comparison-table tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .comparison-table thead th:first-child{display:none}
+  .comparison-table tbody th{grid-column:1/-1}
+  .comparison-table tbody tr:not(.comparison-group) th{padding-bottom:5px;border-bottom:0}
+  .comparison-table .comparison-group th{margin-top:8px}
+  .comparison-table :is(th,td){padding:7px 5px;overflow-wrap:break-word}
+  .comparison-table tbody td+td{border-inline-start:1px solid var(--line)}
+}
 @media(max-width:850px){
   .demo-workbench{grid-template-columns:minmax(0,1fr)}
   .demo-workbench .work-copy{order:0}
-  .plan-highlights{min-height:0}
 }
 @media(max-width:520px){
   .official-logo{width:120px}
@@ -110,9 +114,6 @@
   #demo-window .site-tabs button{min-height:36px;padding:5px 8px}
   .marketing-content #content{padding-bottom:26px}
   .marketing-content #social{padding-top:26px}
-  .shared-offer,.offer-comparison{padding:12px}
-  .comparison-table{font-size:11px}
-  .comparison-table :is(th,td){padding:6px 3px;overflow-wrap:break-word}
 }
 </style></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><defs>
@@ -181,31 +182,20 @@
     <div class="section-head">
       <div class="eyebrow">عروض وصل تك</div>
       <h2>اختر الموقع <em>الذي يناسب احتياجك.</em></h2>
-      <p>سواء تحتاج صفحة لحملة أو موقعًا لكل خدماتك أو لوحة تديره بنفسك، بتلقى فرق كل عرض وتفاصيله هنا.</p>
+      <p>صفحة لحملة أو خدمة، موقع لكل خدماتك، أو موقع تدير محتواه بنفسك. اختر حسب احتياجك.</p>
       <div class="subline"></div>
     </div>
+<div class="comparison-jump"><a class="demo-jump" href="#offer-comparison">انتقل إلى المقارنة الكاملة</a></div>
     <div class="package-grid" id="package-grid"></div>
-    <div class="shared-offer">
-      <h3>يشمل كل عرض</h3>
-      <ul>
-        <li>دومين باسم النشاط</li><li>استضافة على سيرفر واتصال آمن</li>
-        <li>تصميم متجاوب مع الجوال</li><li>آراء العملاء</li>
-        <li>تهيئة البحث وتنظيم المحتوى للاكتشاف</li>
-      </ul>
-    </div>
-    <details class="offer-comparison">
-      <summary>قارن الباقات ميزة بميزة <svg class="ico"><use href="#i-chevron"/></svg></summary>
-      <table class="comparison-table" aria-label="مقارنة عروض تصميم المواقع">
-        <thead><tr><th scope="col">الميزة</th><th scope="col">صفحة هبوط</th><th scope="col">موقع تعريفي</th><th scope="col">موقع متكامل</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">عرض الخدمات</th><td>خدمة أو حملة في صفحة</td><td>صفحات مستقلة</td><td>صفحات قابلة للإدارة</td></tr>
-          <tr><th scope="row">آراء العملاء</th><td>ضمن الصفحة</td><td>ضمن الموقع</td><td>تديرها بنفسك</td></tr>
-          <tr><th scope="row">المدونة</th><td>—</td><td>مقالات منشورة</td><td>إدارة المقالات والتصنيفات</td></tr>
-          <tr><th scope="row">تهيئة البحث</th><td>عنوان ووصف ومحتوى الصفحة</td><td>تهيئة الخدمات والمقالات</td><td>إعدادات أوسع وتقارير</td></tr>
-          <tr><th scope="row">لوحة إدارة</th><td>—</td><td>—</td><td>لتحديث الصفحات والمحتوى</td></tr>
-        </tbody>
+    <section class="offer-comparison" id="offer-comparison" aria-labelledby="comparison-title">
+      <h3 id="comparison-title">مقارنة الباقات كاملة</h3>
+      <p>كل ميزة في البطاقات تجدها هنا جنبًا إلى جنب.</p>
+      <table class="comparison-table" role="table" aria-labelledby="comparison-title">
+        <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">الميزة</th><th scope="col" role="columnheader">صفحة هبوط</th><th scope="col" role="columnheader">موقع تعريفي</th><th scope="col" role="columnheader">موقع متكامل</th></tr></thead>
+        <tbody role="rowgroup" id="comparison-body"></tbody>
       </table>
-    </details>
+      <p class="comparison-note">تهيئة البحث تدعم فرص الاكتشاف في Google وأدوات الذكاء الاصطناعي، ويختلف الظهور والترتيب حسب عوامل البحث.</p>
+    </section>
   </div>
 </section>
 <section class="section" id="extras"><div class="wrap"><div class="section-head"><div class="eyebrow">تطوير حضورك حسب الحاجة</div><h2>إضافات تختارها <em>عندما تحتاجها.</em></h2><p>كل نشاط له طريقة عمل مختلفة؛ لذلك يمكن تخصيص الوظائف الإضافية بصورة مستقلة عن العروض الأساسية.</p></div><div class="extras"><div class="extra"><svg class="ico"><use href="#i-calendar"/></svg><b>نظام حجز مواعيد</b><p>تحديد المواعيد واستقبال طلبات الحجز.</p></div><div class="extra"><svg class="ico"><use href="#i-chat"/></svg><b>محادثة مباشرة أو مساعد ذكي</b><p>الرد على الاستفسارات وتنظيم التواصل.</p></div><div class="extra"><svg class="ico"><use href="#i-globe"/></svg><b>لغات إضافية</b><p>إتاحة المحتوى لجمهور بلغات متعددة.</p></div><div class="extra"><svg class="ico"><use href="#i-chart"/></svg><b>تحليلات وتسويق متقدم</b><p>قياس أداء الحملات ومصادر الزيارات.</p></div><div class="extra"><svg class="ico"><use href="#i-edit"/></svg><b>توسعة الصفحات والخدمات</b><p>أقسام جديدة حسب نمو النشاط.</p></div><div class="extra"><svg class="ico"><use href="#i-layers"/></svg><b>تكاملات مخصصة</b><p>ربط الموقع بالأنظمة المناسبة لطبيعة العمل.</p></div></div></div></section>
@@ -332,33 +322,96 @@ document.querySelectorAll('[data-channel]').forEach(button => {
 });
 showChannel('google');
 const socialViews={instagram:`<div class="eyebrow">your.brand</div><h4>اسم نشاطك</h4><p>خدمات متخصصة • أعمال نعتز بها • تواصل مباشر</p><div class="step-tabs"><span>خدماتنا</span><span>أعمالنا</span><span>تقييمات</span><span>تواصل</span></div><div class="two-mini" style="margin-top:13px"><div class="mini-card" style="background:#ddf2ef">${icon('briefcase')}<b>من أعمالنا</b>شاهد التفاصيل</div><div class="mini-card" style="background:#e2ebf5">${icon('file')}<b>خدماتنا</b>تفاصيل كل خدمة</div></div><div class="caption-strip">${icon('globe')} رابط الموقع: yourbrand.com</div>`,facebook:`<div class="eyebrow">صفحة نشاطك</div><h4>اسم نشاطك | خدمات احترافية</h4><p>تعرف على خدماتنا وأعمالنا وآخر أخبار النشاط.</p><div class="two-mini"><div class="mini-card">${icon('layout')}<b>منشور عن خدمة</b>تعرف على التفاصيل</div><div class="mini-card">${icon('star')}<b>تجربة عميل</b>شاهد أعمالنا</div></div><div class="caption-strip">${icon('globe')} تفاصيل الخدمات على موقع النشاط</div>`,website:`<div class="eyebrow">yourbrand.com</div><h4>مرحبًا بك في موقعنا</h4><p>هنا تجد خدمات النشاط، معرض الأعمال، الأسئلة الشائعة وجميع طرق التواصل.</p><div class="two-mini"><div class="mini-card">${icon('briefcase')}<b>خدمات واضحة</b>كل ما نقدمه في أقسام مرتبة</div><div class="mini-card">${icon('chat')}<b>تواصل مباشر</b>الخطوة التالية أصبحت أسهل</div></div><div class="caption-strip">${icon('check')} جميع قنوات نشاطك تقود إلى مرجع واحد</div>`};function showSocial(key){document.querySelectorAll('[data-social]').forEach(b=>{let ok=b.dataset.social===key;b.classList.toggle('active',ok);b.setAttribute('aria-selected',String(ok))});const e=document.getElementById('social-preview');e.innerHTML=socialViews[key];e.classList.remove('motion-in');void e.offsetWidth;e.classList.add('motion-in')};document.querySelectorAll('[data-social]').forEach(b=>b.addEventListener('click',()=>showSocial(b.dataset.social)));showSocial('instagram');
-const plans=[{"tag":"انطلاقة مركّزة","title":"صفحة هبوط","desc":"صفحة مركّزة لخدمة أو عرض واحد، تساعد الزائر يفهم الفكرة ويتواصل بسرعة.","benefit":"اختيار مناسب للحملات والعروض والخدمات المحددة.","features":["تصميم صفحة واحدة متجاوبة مع الهاتف والكمبيوتر","عنوان رئيسي ورسالة تسويقية واضحة","أقسام للخدمة وفوائدها وصورها","آراء العملاء وتجاربهم لبناء الثقة","قسم للأسئلة الشائعة","أزرار واتساب واتصال ونموذج استفسار","روابط الحسابات وبيانات التواصل","دومين باسم النشاط واستضافة سيرفر","تهيئة أساسية للظهور في Google","محتوى منظم يساعد محركات البحث والبحث بالذكاء الاصطناعي على فهم الخدمة","سرعة تصفح واتصال آمن HTTPS"],"details":[["واجهة تقنع من أول زيارة","عنوان يشرح الخدمة بسرعة، مع فوائد واضحة وصور وعناصر ثقة وأزرار تواصل بارزة."],["آراء العملاء والأسئلة","قسم لعرض تجارب العملاء والأسئلة المتكررة ضمن الصفحة، وتحديثه يتم عبر تعديل محتوى الموقع."],["التواصل","أزرار واتساب واتصال ونموذج بسيط لإرسال الاستفسار."],["الدومين والاستضافة","اسم نطاق باسم النشاط مع استضافة سيرفر للموقع وإعداد الاتصال الآمن."],["البحث والذكاء الاصطناعي","تهيئة عنوان الصفحة ووصفها وتنظيم نص الخدمة ليسهل فهمها وفهرستها؛ الظهور أو ترتيب النتائج غير مضمون."]]},{"tag":"تعريف احترافي","title":"موقع تعريفي","desc":"موقع متعدد الصفحات يقدم نشاطك وخدماتك وأعمالك ومقالاتك في عنوان واحد.","benefit":"للشركات والمؤسسات والأنشطة التي تقدم خدمات متعددة.","features":["واجهة رئيسية احترافية ومتجاوبة","صفحة من نحن والتعريف بالنشاط","صفحات للخدمات بتفاصيلها وصورها","معرض أعمال ومشاريع سابقة","آراء العملاء والتقييمات","مدونة ومقالات وصفحات للمحتوى","صفحة الأسئلة الشائعة والسياسات","صفحة تواصل ونموذج استفسار","واتساب واتصال وروابط الحسابات","تنقل منظم بين جميع الصفحات","دومين باسم النشاط واستضافة سيرفر","تهيئة محركات البحث للصفحات والخدمات والمقالات","محتوى واضح قابل للفهم والاكتشاف في البحث والبحث بالذكاء الاصطناعي","توافق الأجهزة وسرعة تصفح واتصال HTTPS"],"details":[["الرئيسية والخدمات","واجهة تقدم النشاط وأبرز خدماته وأعماله، وصفحات مستقلة لكل خدمة تتضمن صورًا ومعلومات واضحة."],["الأعمال وآراء العملاء","معرض مشاريع وآراء حقيقية وشهادات العملاء في صفحات منظمة تعزز الثقة."],["المدونة","مدونة ومقالات منشورة للإجابة عن أسئلة العملاء وعرض الخبرات؛ تحديث المقالات عبر تعديل الموقع، دون لوحة إدارة للمحتوى."],["التواصل والصفحات","من نحن والأسئلة الشائعة والسياسات وصفحة تواصل مع نموذج استفسار وواتساب واتصال."],["الدومين والاستضافة","دومين باسم النشاط واستضافة سيرفر وإعداد HTTPS وتجربة مناسبة للهاتف."],["محركات البحث والذكاء الاصطناعي","عناوين وأوصاف وروابط مفهومة لكل صفحة، وتنسيق المعلومات والأجوبة لتسهيل الفهرسة وفهم المحتوى؛ لا يوجد ضمان ظهور أو ترتيب محدد."]]},{"tag":"حضور قابل للنمو","title":"موقع متكامل","desc":"موقع تعريفي شامل مع لوحة تحكم لإدارة الخدمات والأعمال وآراء العملاء والمدونة وتحسين الظهور.","benefit":"للأنشطة التي تريد تحديث محتواها بنفسها وتطوير حضورها بشكل مستمر.","features":["واجهة رئيسية احترافية ومتجاوبة","صفحات الخدمات والأقسام التفصيلية","معرض الأعمال والمشاريع","آراء العملاء والتقييمات","مدونة ومقالات وتصنيفات المحتوى","من نحن والتواصل والسياسات والأسئلة الشائعة","واتساب واتصال ونماذج الاستفسارات","دومين باسم النشاط واستضافة سيرفر","تهيئة محركات البحث لصفحات الموقع","تنظيم المحتوى ليسهل فهمه في Google وأنظمة البحث بالذكاء الاصطناعي","لوحة تحكم لإدارة صفحات الموقع وأقسامه","إضافة وتعديل الخدمات والأعمال والصور","إدارة آراء العملاء والمقالات والأسئلة الشائعة","إدارة البنرات والواجهة الرئيسية","إعدادات SEO المتقدمة وعناوين الصفحات وروابطها","خريطة الموقع وتهيئة الفهرسة والبيانات المنظمة","ربط Google Analytics وSearch Console","تقارير الزيارات وأداء الموقع","صلاحيات مستخدمي لوحة الإدارة","النسخ الاحتياطي والأداء والأمان"],"details":[["الواجهة والصفحات","رئيسية متجاوبة مع صفحات تفصيلية للخدمات والأعمال ومن نحن والسياسات والتواصل."],["المقالات والتقييمات","مدونة وتصنيفات وصفحات للمقالات وآراء العملاء وتجاربهم مع إمكان إضافتها وتعديلها من لوحة الإدارة."],["لوحة الإدارة","تعديل الصفحات والنصوص والصور والخدمات والمشاريع والبنرات والمقالات والأسئلة والتقييمات دون العودة للمبرمج في كل تحديث."],["الاستضافة والتشغيل","دومين باسم النشاط واستضافة سيرفر، اتصال HTTPS وصلاحيات الإدارة والنسخ الاحتياطي."],["الظهور في Google والبحث الذكي","تحسين فني ومحتوائي أوسع يتضمن عناوين SEO، وروابط الصفحات، وخريطة الموقع، وبيانات منظمة عند الحاجة؛ لزيادة وضوح الموقع لمحركات البحث وأنظمة البحث بالذكاء الاصطناعي دون ضمان ترتيب أو ظهور."],["التحليلات","ربط Google Analytics وSearch Console لمتابعة الزيارات وأداء البحث والصفحات الأكثر اهتمامًا."]]}];
-const planHighlights = [
-  ['واجهة واحدة لخدمة أو حملة', 'فوائد وصور وآراء العملاء في الصفحة', 'اتصال وواتساب ونموذج استفسار'],
-  ['صفحات مستقلة للخدمات والأعمال', 'مدونة ومقالات يشاركها عملاؤك', 'آراء العملاء وصفحة تواصل مستقلة'],
-  ['لوحة لإدارة الخدمات والأعمال بنفسك', 'تحديث المدونة والصور وآراء العملاء', 'إعدادات بحث وتقارير أوسع']
+const plans = [
+  { title: 'صفحة هبوط', summary: 'صفحة واحدة تشرح خدمة أو عرضًا وتوجّه الزائر للاستفسار.', audience: 'مناسبة للحملات والعروض والخدمات المحددة.' },
+  { title: 'موقع تعريفي', summary: 'موقع متعدد الصفحات يجمع نشاطك وخدماتك وأعمالك ومقالاتك.', audience: 'مناسب للأنشطة التي تقدم عدة خدمات أو تحتاج معرض أعمال.' },
+  { title: 'موقع متكامل', summary: 'موقع تعريفي شامل مع لوحة تتحكم من خلالها في المحتوى.', audience: 'مناسب للأنشطة التي تريد تحديث الموقع ومتابعة أدائه بنفسها.' }
 ];
+
+const allPlans = description => plans.map(() => description);
+const offerFeatures = [
+  {
+    group: 'التصميم والمحتوى',
+    rows: [
+      ['الواجهة الرئيسية', ['صفحة واحدة برسالة تسويقية واضحة لخدمة أو حملة.', 'واجهة تقدم النشاط وتبرز خدماته وأعماله.', 'واجهة تعرض أبرز الخدمات والأعمال، مع إدارة البنرات من اللوحة.']],
+      ['الخدمات والصور', ['أقسام تشرح الخدمة وفوائدها وتعرض صورها.', 'صفحات مستقلة لكل خدمة، مع التفاصيل والصور.', 'صفحات وأقسام تفصيلية للخدمات مع إضافة النصوص والصور وتعديلها.']],
+      ['معرض الأعمال', [null, 'معرض صور ومشاريع سابقة يوضح خبرتك.', 'معرض أعمال ومشاريع تُضيفها وتحدّث صورها وتفاصيلها من اللوحة.']],
+      ['التعريف بالنشاط والسياسات', [null, 'صفحة «من نحن» للتعريف بالنشاط، وصفحات للسياسات.', 'صفحات «من نحن» والسياسات، مع تحديث محتواها من اللوحة.']],
+      ['آراء العملاء', ['عرض تجارب العملاء داخل الصفحة.', 'عرض الآراء والتقييمات ضمن الموقع ومعرض الأعمال.', 'عرض الآراء والتقييمات وإضافتها وتحديثها من اللوحة.']],
+      ['الأسئلة الشائعة', ['قسم يجيب عن أكثر الأسئلة حول الخدمة أو العرض.', 'صفحة للأسئلة الشائعة عن الخدمات وطريقة الطلب.', 'قسم للأسئلة الشائعة مع تحديث الإجابات من اللوحة.']],
+      ['المدونة والمقالات', [null, 'مدونة ومقالات تنشر خبرتك وتجيب عن أسئلة عملائك. التحديث عبر تعديل الموقع.', 'مدونة مع إدارة المقالات والتصنيفات من اللوحة.']],
+      ['التنقل بين الصفحات', [null, 'قائمة تنقل تربط الرئيسية والخدمات والأعمال وبقية الصفحات.', 'قائمة منظمة للوصول إلى الصفحات والأقسام التفصيلية.']],
+      ['توافق الأجهزة', allPlans('تصميم متجاوب مع الجوال والكمبيوتر.')],
+      ['سرعة التصفح', allPlans('تهيئة أداء الصفحات والصور لتصفح أسرع.')]
+    ]
+  },
+  {
+    group: 'التواصل مع العملاء',
+    rows: [
+      ['واتساب والاتصال', allPlans('أزرار واضحة للتواصل عبر واتساب والاتصال المباشر.')],
+      ['نموذج الاستفسار', ['نموذج داخل الصفحة لإرسال استفسار عن الخدمة أو العرض.', 'نموذج استفسار في صفحة التواصل.', 'نماذج استفسار بحسب أقسام الموقع واحتياج النشاط.']],
+      ['بيانات التواصل وروابط الحسابات', ['بيانات التواصل وروابط حسابات النشاط داخل الصفحة.', 'صفحة تواصل تجمع بيانات النشاط وروابط حساباته.', 'صفحة تواصل تعرض بيانات النشاط وروابط حساباته.']]
+    ]
+  },
+  {
+    group: 'الدومين والاستضافة',
+    rows: [
+      ['الدومين', allPlans('دومين باسم النشاط مشمول لمدة سنة كاملة.')],
+      ['الاستضافة', allPlans('استضافة على سيرفر مشمولة لمدة سنة كاملة.')],
+      ['الاتصال الآمن', allPlans('إعداد الاتصال الآمن HTTPS للموقع.')]
+    ]
+  },
+  {
+    group: 'Google والبحث بالذكاء الاصطناعي',
+    rows: [
+      ['تهيئة محركات البحث', ['تهيئة عنوان الصفحة ووصفها ونص الخدمة لمساعدة محركات البحث على فهمها.', 'تهيئة عناوين وأوصاف وروابط صفحات الخدمات والمقالات لتسهيل فهرستها.', 'إعدادات متقدمة لعناوين الصفحات وأوصافها وروابطها من لوحة التحكم.']],
+      ['التهيئة للبحث بالذكاء الاصطناعي', ['تنظيم نص الخدمة ومعلومات النشاط لدعم فرص اكتشافها.', 'تنظيم معلومات الخدمات والمقالات والأسئلة الشائعة لدعم فرص اكتشافها.', 'تهيئة محتوى الموقع والخدمات والمقالات لدعم فرص فهمه واكتشافه.']],
+      ['خريطة الموقع والفهرسة', [null, null, 'خريطة موقع وإعدادات تساعد محركات البحث على فهرسة الصفحات.']],
+      ['البيانات المنظمة', [null, null, 'إضافة بيانات منظمة للصفحات المناسبة لدعم فهم محتواها.']],
+      ['Google Analytics وSearch Console', [null, null, 'ربط أدوات Google لمتابعة الزيارات وأداء الظهور في البحث.']],
+      ['تقارير الزيارات والأداء', [null, null, 'متابعة الزيارات وأداء الموقع والصفحات الأكثر اهتمامًا.']]
+    ]
+  },
+  {
+    group: 'لوحة إدارة الموقع',
+    rows: [
+      ['إدارة الصفحات والواجهة', [null, null, 'تعديل الصفحات والأقسام والنصوص والصور والبنرات من لوحة التحكم.']],
+      ['إدارة الخدمات والمحتوى', [null, null, 'إدارة الخدمات والأعمال والمقالات والتقييمات والأسئلة الشائعة بنفسك.']],
+      ['صلاحيات الإدارة', [null, null, 'صلاحيات لمستخدمي لوحة الإدارة بحسب أدوارهم.']],
+      ['النسخ الاحتياطي والأمان', [null, null, 'نسخ احتياطي وإعدادات أمان للموقع ولوحة الإدارة.']]
+    ]
+  }
+];
+
 const grid = document.querySelector('#package-grid');
 grid.innerHTML = plans.map((plan, index) => {
   const message = encodeURIComponent(`مرحبًا، أريد الاستفسار عن باقة «${plan.title}» للمواقع من وصل تك.`);
-  return `
-    <article class="plan ${index === 1 ? 'featured' : ''}">
-      <h3>${plan.title}</h3>
-      <p class="plan-desc">${plan.desc}</p>
-      <div class="plan-benefit">${plan.benefit}</div>
-      <ul class="plan-highlights">${planHighlights[index].map(feature => `<li>${icon('check')}${feature}</li>`).join('')}</ul>
-      <a class="plan-contact" href="https://wa.me/967775377979?text=${message}" target="_blank" rel="noopener"
-        aria-label="استفسر عن باقة ${plan.title} عبر واتساب">${icon('chat')} استفسر عن الباقة</a>
-      <details class="package-detail">
-        <summary>جميع المميزات والتفاصيل ${icon('chevron')}</summary>
-        <div class="package-detail-body">
-          <h4>المميزات كاملة</h4>
-          <ul>${plan.features.map(feature => `<li>${icon('check')}${feature}</li>`).join('')}</ul>
-          <h4>شرح المميزات</h4>
-          <div class="package-detail-list">${plan.details.map(([name, copy]) =>
-            `<div class="package-detail-item"><strong>${name}</strong><p>${copy}</p></div>`).join('')}</div>
-        </div>
-      </details>
-    </article>`;
+  const sections = offerFeatures.map(({group, rows}) => {
+    const included = rows.filter(([, descriptions]) => descriptions[index]);
+    if (!included.length) return '';
+    return `<section class="plan-section">
+      <h4>${group}</h4>
+      <ul>${included.map(([name, descriptions]) =>
+        `<li>${icon('check')}<div><strong>${name}</strong><span>${descriptions[index]}</span></div></li>`).join('')}</ul>
+    </section>`;
+  }).join('');
+  return `<article class="plan ${index === 1 ? 'featured' : ''}">
+    <h3>${plan.title}</h3>
+    <p class="plan-desc">${plan.summary}</p>
+    <div class="plan-benefit">${plan.audience}</div>
+    ${sections}
+    <a class="plan-contact" href="https://wa.me/967775377979?text=${message}" target="_blank" rel="noopener"
+      aria-label="استفسر عن باقة ${plan.title} عبر واتساب">${icon('chat')} استفسر عن الباقة</a>
+  </article>`;
 }).join('');
+
+document.querySelector('#comparison-body').innerHTML = offerFeatures.map(({group, rows}) =>
+  `<tr class="comparison-group" role="row"><th colspan="4" role="cell">${group}</th></tr>
+  ${rows.map(([name, descriptions]) => `<tr class="comparison-feature" role="row">
+    <th scope="row" role="rowheader">${name}</th>
+    ${descriptions.map(description => description
+      ? `<td role="cell">${description}</td>`
+      : '<td role="cell" class="comparison-absent">غير مشمول</td>').join('')}
+  </tr>`).join('')}`
+).join('');
 </script></body></html>
